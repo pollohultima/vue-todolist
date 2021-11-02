@@ -21,7 +21,34 @@
 
         <div id="root">
 
+            <div class="container">
+                <div class="logo my-4">
+                    <img :src="imgUrl" alt="" class="img-fluid">
+                </div>
+                <div class="addTasks d-flex justify-content-center">
+                    <!-- //keyup per far partire la funzione "addtask" all'enter -->
+                    <input type="text" v-model="newTask"
+                        @keyup.enter="addTask" class="m-2">
+                    <button @click="addTask">Add</button>
+                    <div class="error" v-show="error">Inserisci un task!</div>
+                </div>
 
+                <div class="task_cont d-flex justify-content-center mt-5">
+                    <div class="tasks" v-if="tasks.length> 0">
+                        <div class="item d-flex p-2" v-for="(task, index) in
+                            tasks">
+                            {{task}}
+                            <div class="remove" @click="deleteTask(index)">
+                                <i class="fas fa-times-circle fa-lg fa-fw"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-else>
+                        <p>Nothing to do, chill!</p>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
