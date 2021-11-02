@@ -6,7 +6,7 @@ body {
     width: 600px!important;
 }
 
-.tasks, .completed_cont {
+.tasks, .completed_cont, .trashed_cont {
     background-color: white;
-    width: 80%;
+    width: 50%;
 }

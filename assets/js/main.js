@@ -12,15 +12,19 @@ const app = new Vue({
 
         error: false,
 
+
         imgUrl: 'https://www.boolean.careers/images/misc/logo.png',
 
-        completedTasks: []
+        completedTasks: [],
+
+        trashedTasks: []
     },
 
     methods: {
 
         deleteTask(i) {
-            this.tasks.splice(i, 1)
+            this.trashedTasks.push(this.tasks[i]),
+                this.tasks.splice(i, 1)
         },
 
         addTask() {
@@ -35,9 +39,8 @@ const app = new Vue({
         },
 
         moveTask(i) {
-            this.completedTasks.push(this.tasks[i])
+            this.completedTasks.push(this.tasks[i]),
+                this.tasks.splice(i, 1)
         }
-
-
     }
 })
