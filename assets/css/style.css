@@ -3,9 +3,10 @@ body {
 }
 
 .container {
-    width: 500px!important;
+    width: 600px!important;
 }
 
-.tasks {
+.tasks, .completed_cont {
     background-color: white;
+    width: 80%;
 }

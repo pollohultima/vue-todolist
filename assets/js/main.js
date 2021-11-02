@@ -12,7 +12,9 @@ const app = new Vue({
 
         error: false,
 
-        imgUrl: 'https://www.boolean.careers/images/misc/logo.png'
+        imgUrl: 'https://www.boolean.careers/images/misc/logo.png',
+
+        completedTasks: []
     },
 
     methods: {
@@ -30,6 +32,12 @@ const app = new Vue({
             }
 
             this.newTask = ''
+        },
+
+        moveTask(i) {
+            this.completedTasks.push(this.tasks[i])
         }
+
+
     }
 })

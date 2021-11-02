@@ -25,24 +25,35 @@
                 <div class="logo my-4">
                     <img :src="imgUrl" alt="" class="img-fluid">
                 </div>
-                <div class="addTasks d-flex justify-content-center">
+                <div class="addTasks d-flex flex-column align-items-center
+                    justify-content-center">
                     <!-- //keyup per far partire la funzione "addtask" all'enter -->
-                    <input type="text" v-model="newTask"
-                        @keyup.enter="addTask" class="m-2">
-                    <button @click="addTask">Add</button>
+                    <div class="type_task">
+                        <input type="text" v-model="newTask"
+                            @keyup.enter="addTask" class="m-2">
+                        <button @click="addTask">Add</button>
+                    </div>
                     <div class="error" v-show="error">Inserisci un task!</div>
                 </div>
 
-                <div class="task_cont d-flex justify-content-center
+                <div class="task_cont d-flex justify-content-evenly
                     mt-5">
 
-                    <div class="tasks rounded-3 p-3" v-if="tasks.length> 0">
-                        <h2>To do List</h2>
-                        <div class="item d-flex p-2" v-for="(task, index) in
+                    <div class="tasks rounded-3 p-3 m-2" v-if="tasks.length> 0">
+                        <h2 class="text-center">To do List</h2>
+                        <div class="item d-flex justify-content-between p-2"
+                            v-for="(task, index) in
                             tasks">
                             {{task}}
-                            <div class="remove" @click="deleteTask(index)">
-                                <i class="fas fa-times-circle fa-lg fa-fw"></i>
+                            <div class="icons d-flex">
+
+                                <div class="remove" @click="deleteTask(index)">
+                                    <i class="fas fa-times-circle fa-lg fa-fw"></i>
+                                </div>
+                                <div class="completed ps-3"
+                                    @click="moveTask(index)">
+                                    <i class="fas fa-check"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -50,7 +61,17 @@
                     <div v-else>
                         <p>Nothing to do, chill!</p>
                     </div>
+
+                    <div class="completed_cont rounded-3 p-3 m-2">
+                        <h2 class="text-center">Completed</h2>
+                        <div class="item_done d-flex p-2" v-for="(taska, index)
+                            in
+                            completedTasks">
+                            {{taska}}
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
         </div>
