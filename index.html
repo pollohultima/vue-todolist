@@ -33,8 +33,11 @@
                     <div class="error" v-show="error">Inserisci un task!</div>
                 </div>
 
-                <div class="task_cont d-flex justify-content-center mt-5">
-                    <div class="tasks" v-if="tasks.length> 0">
+                <div class="task_cont d-flex justify-content-center
+                    mt-5">
+
+                    <div class="tasks rounded-3 p-3" v-if="tasks.length> 0">
+                        <h2>To do List</h2>
                         <div class="item d-flex p-2" v-for="(task, index) in
                             tasks">
                             {{task}}
