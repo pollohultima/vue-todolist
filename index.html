@@ -67,10 +67,16 @@
                         v-if="completedTasks.length> 0">
 
                         <h2 class="text-center">Completed</h2>
-                        <div class="item_done d-flex p-2" v-for="(task, index)
+                        <div class="item_done d-flex p-2
+                            justify-content-between" v-for="(task, index)
                             in
                             completedTasks">
                             {{task}}
+                            <div class="icons d-flex">
+                                <div class="redo" @click="redoTask(index)">
+                                    <i class="fas fa-redo"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -84,6 +90,9 @@
                             in
                             trashedTasks">
                             {{task}}
+                            <div class="remove" @click="deleteTask(index)">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
                         </div>
                     </div>
 

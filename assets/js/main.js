@@ -41,6 +41,11 @@ const app = new Vue({
         moveTask(i) {
             this.completedTasks.push(this.tasks[i]),
                 this.tasks.splice(i, 1)
+        },
+
+        redoTask(i) {
+            this.tasks.push(this.completedTasks[i]),
+                this.completedTasks.splice(i, 1)
         }
     }
 })
