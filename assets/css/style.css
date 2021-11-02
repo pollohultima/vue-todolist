@@ -19,3 +19,7 @@ h6 {
 h6:hover {
     text-decoration: underline;
 }
+
+.item {
+    background-color: rgb(221, 214, 205);
+}

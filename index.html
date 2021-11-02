@@ -46,7 +46,7 @@
                         v-if="completedTasks.length> 0">
 
                         <h3 class="text-center">Completed</h3>
-                        <div class="item_done d-flex p-2
+                        <div class="item rounded-1 d-flex p-3
                             justify-content-between" v-for="(task, index)
                             in
                             completedTasks">
@@ -62,7 +62,8 @@
                     <div v-else></div>
                     <div class="tasks rounded-3 p-3 m-2" v-if="tasks.length> 0">
                         <h3 class="text-center">To do List</h3>
-                        <div class="item d-flex justify-content-between p-2"
+                        <div class="item rounded-1 d-flex
+                            justify-content-between p-3"
                             v-for="(task, index) in
                             tasks">
                             {{task}}
@@ -82,7 +83,7 @@
                     <div v-else class="d-flex align-items-center">
                         <p class="text-center">Nothing to do, chill!</p>
                     </div>
-                    <div class="trashed_cont rounded-3 p-3 m-2"
+                    <div class="trashed_cont rounded-1 p-3 m-2"
                         v-if="trashedTasks.length> 0">
 
                         <span class="text-center">
@@ -90,7 +91,7 @@
                             <h6 @click='erase(index)'>Empty Bin</h6>
                         </span>
 
-                        <div class="item_res d-flex p-2
+                        <div class="item rounded-3 d-flex p-3
                             justify-content-between"
                             v-for="(task, index)
                             in
