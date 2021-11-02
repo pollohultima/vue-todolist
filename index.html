@@ -37,61 +37,67 @@
                     <div class="error" v-show="error">Inserisci un task!</div>
                 </div>
 
-                <div class="task_cont d-flex justify-content-evenly
+                <div class="task_cont d-flex justify-content-around
                     mt-5">
 
+
+
+                    <div class="completed_cont rounded-3 p-3 m-2"
+                        v-if="completedTasks.length> 0">
+
+                        <h3 class="text-center">Completed</h3>
+                        <div class="item_done d-flex p-2
+                            justify-content-between" v-for="(task, index)
+                            in
+                            completedTasks">
+                            {{task}}
+
+                            <div class="redo" @click="redoTask(index)">
+                                <i class="fas fa-redo"></i>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-else></div>
                     <div class="tasks rounded-3 p-3 m-2" v-if="tasks.length> 0">
-                        <h2 class="text-center">To do List</h2>
+                        <h3 class="text-center">To do List</h3>
                         <div class="item d-flex justify-content-between p-2"
                             v-for="(task, index) in
                             tasks">
                             {{task}}
                             <div class="icons d-flex">
 
-                                <div class="remove" @click="deleteTask(index)">
-                                    <i class="fas fa-times-circle"></i>
-                                </div>
-                                <div class="completed ps-3"
-                                    @click="moveTask(index)">
+                                <div class="completed" @click="moveTask(index)">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div v-else>
-                        <p>Nothing to do, chill!</p>
-                    </div>
-
-                    <div class="completed_cont rounded-3 p-3 m-2"
-                        v-if="completedTasks.length> 0">
-
-                        <h2 class="text-center">Completed</h2>
-                        <div class="item_done d-flex p-2
-                            justify-content-between" v-for="(task, index)
-                            in
-                            completedTasks">
-                            {{task}}
-                            <div class="icons d-flex">
-                                <div class="redo" @click="redoTask(index)">
-                                    <i class="fas fa-redo"></i>
+                                <div class="remove ps-3"
+                                    @click="deleteTask(index)">
+                                    <i class="fas fa-trash"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div v-else></div>
-
+                    <div v-else class="d-flex align-items-center">
+                        <p class="text-center">Nothing to do, chill!</p>
+                    </div>
                     <div class="trashed_cont rounded-3 p-3 m-2"
                         v-if="trashedTasks.length> 0">
 
-                        <h2 class="text-center">Trashed</h2>
-                        <div class="item_del d-flex p-2" v-for="(task, index)
+                        <span class="text-center">
+                            <h3>Trashed</h3>
+                            <h6 @click='erase(index)'>Empty Bin</h6>
+                        </span>
+
+                        <div class="item_res d-flex p-2
+                            justify-content-between"
+                            v-for="(task, index)
                             in
                             trashedTasks">
                             {{task}}
-                            <div class="remove" @click="deleteTask(index)">
-                                <i class="fas fa-times-circle"></i>
+                            <div class="restore" @click="restoreTask(index)">
+                                <i class="fas fa-trash-restore-alt"></i>
                             </div>
                         </div>
                     </div>

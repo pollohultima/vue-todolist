@@ -46,6 +46,16 @@ const app = new Vue({
         redoTask(i) {
             this.tasks.push(this.completedTasks[i]),
                 this.completedTasks.splice(i, 1)
+        },
+
+        restoreTask(i) {
+            this.tasks.push(this.trashedTasks[i]),
+                this.trashedTasks.splice(i, 1)
+
+        },
+
+        erase(i) {
+            this.trashedTasks.splice(i, 999)
         }
     }
 })

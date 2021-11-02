@@ -8,5 +8,14 @@ body {
 
 .tasks, .completed_cont, .trashed_cont {
     background-color: white;
-    width: 50%;
+    width: 300px;
+}
+
+h6 {
+    color: red;
+    cursor: pointer;
+}
+
+h6:hover {
+    text-decoration: underline;
 }
